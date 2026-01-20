@@ -6,11 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
     <title>مجوهرات أولاد الحاج شحاته عبد الهادي</title>
     
+    <!-- PWA & Mobile Capability Tags -->
     <link rel="manifest" href="./manifest.json" />
     <meta name="theme-color" content="#1f2937" />
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="application-name" content="Gold Master">
     <meta name="apple-mobile-web-app-title" content="Gold Master" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="msapplication-starturl" content="/">
     <meta name="format-detection" content="telephone=no" />
     
     <!-- Dynamic SVG Favicon (Nano Banana Pro Style) -->
@@ -93,20 +97,10 @@
         padding-bottom: var(--sab);
       }
       
-      /* Force Center Headers for Mobile Look */
-      h1, h2, h3 {
-          text-align: center;
-      }
-      
-      /* Make inputs centered text by default for cleaner mobile look */
-      input:not([type="checkbox"]):not([type="radio"]), select {
-          text-align: center;
-      }
+      h1, h2, h3 { text-align: center; }
+      input:not([type="checkbox"]):not([type="radio"]), select { text-align: center; }
 
-      .dark body {
-        background-color: #111827;
-        color: #f3f4f6;
-      }
+      .dark body { background-color: #111827; color: #f3f4f6; }
 
       .safe-pt { padding-top: var(--sat) !important; }
       .safe-pb { padding-bottom: var(--sab) !important; }
@@ -120,14 +114,10 @@
       .custom-scrollbar::-webkit-scrollbar-thumb { background-color: rgba(156, 163, 175, 0.5); border-radius: 20px; }
       
       @media screen and (max-width: 768px) {
-        input, select, textarea {
-          font-size: 16px !important; 
-        }
+        input, select, textarea { font-size: 16px !important; }
       }
 
-      .dark input[type="date"]::-webkit-calendar-picker-indicator {
-          filter: invert(1);
-      }
+      .dark input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(1); }
       @media print {
         .no-print { display: none !important; }
         .print-only { display: block !important; }
@@ -166,7 +156,7 @@
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
+          navigator.serviceWorker.register('/sw.js', { scope: '/' })
             .then(reg => console.log('SW registered:', reg))
             .catch(err => console.log('SW registration failed:', err));
         });
