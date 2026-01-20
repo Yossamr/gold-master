@@ -12,6 +12,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="Gold Master" />
     <meta name="format-detection" content="telephone=no" />
+    
+    <!-- Dynamic SVG Favicon (Nano Banana Pro Style) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg width='512' height='512' viewBox='0 0 512 512' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='gold' x1='0' y1='0' x2='512' y2='512' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0%25' stop-color='%23FFF7D6'/%3E%3Cstop offset='20%25' stop-color='%23FCD34D'/%3E%3Cstop offset='60%25' stop-color='%23B45309'/%3E%3Cstop offset='100%25' stop-color='%23451a03'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M256 20L470 135V377L256 492L42 377V135L256 20Z' fill='%23111827' stroke='url(%23gold)' stroke-width='16'/%3E%3Cpath d='M256 120L360 220L256 360L152 220Z' fill='url(%23gold)'/%3E%3C/svg%3E" />
     <link rel="apple-touch-icon" href="/logo192.png" />
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -47,6 +50,15 @@
             },
             screens: {
               'xs': '375px', // Small phones support
+            },
+            animation: {
+              'slide-up': 'slideUp 0.5s ease-out forwards',
+            },
+            keyframes: {
+              slideUp: {
+                '0%': { transform: 'translateY(100%)' },
+                '100%': { transform: 'translateY(0)' },
+              }
             }
           }
         }
@@ -147,7 +159,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="./assets/index-LSAaNTmj.js"></script>
+  <script type="module" crossorigin src="./assets/index-Qy3qFmMn.js"></script>
 </head>
   <body>
     <div id="root"></div>
