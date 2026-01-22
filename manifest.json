@@ -2,46 +2,28 @@
 {
   "name": "Gold Master Egypt",
   "short_name": "Gold Master",
-  "description": "نظام إدارة محلات الذهب والمجوهرات المتكامل - إصدار سحابي",
-  "id": "/?source=pwa",
-  "start_url": "/?source=pwa",
-  "scope": "/",
+  "start_url": ".",
   "display": "standalone",
-  "display_override": ["window-controls-overlay", "minimal-ui"],
   "background_color": "#1f2937",
   "theme_color": "#b45309",
   "orientation": "any",
-  "categories": ["finance", "business", "productivity"],
   "icons": [
     {
-      "src": "/logo.svg",
-      "type": "image/svg+xml",
-      "sizes": "any",
-      "purpose": "any maskable"
+      "src": "icon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
     },
     {
-      "src": "/logo.svg",
-      "type": "image/svg+xml",
-      "sizes": "512x512",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/logo.svg",
-      "type": "image/svg+xml",
+      "src": "logo192.png",
+      "type": "image/png",
       "sizes": "192x192",
       "purpose": "any maskable"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "فواتير البيع",
-      "url": "/sales",
-      "description": "فتح شاشة البيع مباشرة"
     },
     {
-      "name": "المخزن",
-      "url": "/inventory",
-      "description": "عرض المخزون"
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ]
 }
