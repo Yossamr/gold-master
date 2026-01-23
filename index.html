@@ -3,17 +3,13 @@
 <html lang="ar" dir="rtl">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
-    <title>مجوهرات أولاد الحاج شحاته عبد الهادي</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Gold Master Egypt - Desktop Edition</title>
     
     <link rel="manifest" href="./manifest.json" />
     <meta name="theme-color" content="#1f2937" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Gold Master" />
-    <meta name="format-detection" content="telephone=no" />
     
-    <!-- Dynamic SVG Favicon (Nano Banana Pro Style) -->
+    <!-- Dynamic SVG Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg width='512' height='512' viewBox='0 0 512 512' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='gold' x1='0' y1='0' x2='512' y2='512' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0%25' stop-color='%23FFF7D6'/%3E%3Cstop offset='20%25' stop-color='%23FCD34D'/%3E%3Cstop offset='60%25' stop-color='%23B45309'/%3E%3Cstop offset='100%25' stop-color='%23451a03'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M256 20L470 135V377L256 492L42 377V135L256 20Z' fill='%23111827' stroke='url(%23gold)' stroke-width='16'/%3E%3Cpath d='M256 120L360 220L256 360L152 220Z' fill='url(%23gold)'/%3E%3C/svg%3E" />
     <link rel="apple-touch-icon" href="/logo192.png" />
 
@@ -48,16 +44,13 @@
             fontFamily: {
               sans: ['Cairo', 'sans-serif'],
             },
-            screens: {
-              'xs': '375px', // Small phones support
-            },
             animation: {
-              'slide-up': 'slideUp 0.5s ease-out forwards',
+              'fade-in': 'fadeIn 0.2s ease-out forwards',
             },
             keyframes: {
-              slideUp: {
-                '0%': { transform: 'translateY(100%)' },
-                '100%': { transform: 'translateY(0)' },
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(5px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
               }
             }
           }
@@ -69,15 +62,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
       :root {
-        --sat: env(safe-area-inset-top);
-        --sab: env(safe-area-inset-bottom);
-        --sal: env(safe-area-inset-left);
-        --sar: env(safe-area-inset-right);
+        --scrollbar-bg: #f3f4f6;
+        --scrollbar-thumb: #d1d5db;
+        --scrollbar-thumb-hover: #9ca3af;
+      }
+      .dark {
+        --scrollbar-bg: #111827;
+        --scrollbar-thumb: #374151;
+        --scrollbar-thumb-hover: #4b5563;
       }
 
       html {
-        -webkit-tap-highlight-color: transparent;
-        touch-action: manipulation;
         height: 100%;
         background-color: #1f2937;
       }
@@ -86,43 +81,39 @@
         font-family: 'Cairo', sans-serif;
         background-color: #f3f4f6;
         color: #1f2937;
-        user-select: none;
-        -webkit-user-select: none;
-        overscroll-behavior-y: none;
         min-height: 100%;
-        padding-bottom: var(--sab);
+        font-size: 14px; /* Optimized for Desktop Density */
       }
       
-      /* Force Center Headers for Mobile Look */
-      h1, h2, h3 {
-          text-align: center;
+      /* Desktop Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
       }
-      
-      /* Make inputs centered text by default for cleaner mobile look */
-      input:not([type="checkbox"]):not([type="radio"]), select {
-          text-align: center;
+      ::-webkit-scrollbar-track {
+        background: var(--scrollbar-bg); 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-thumb); 
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--scrollbar-thumb-hover); 
       }
 
-      .dark body {
-        background-color: #111827;
-        color: #f3f4f6;
+      /* Allow text selection on desktop */
+      .select-text {
+          user-select: text;
+          -webkit-user-select: text;
       }
 
-      .safe-pt { padding-top: var(--sat) !important; }
-      .safe-pb { padding-bottom: var(--sab) !important; }
-      .safe-pl { padding-left: var(--sal) !important; }
-      .safe-pr { padding-right: var(--sar) !important; }
-      
-      .no-scrollbar::-webkit-scrollbar { display: none; }
-      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-      .custom-scrollbar::-webkit-scrollbar { width: 4px; }
-      .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-      .custom-scrollbar::-webkit-scrollbar-thumb { background-color: rgba(156, 163, 175, 0.5); border-radius: 20px; }
-      
-      @media screen and (max-width: 768px) {
-        input, select, textarea {
-          font-size: 16px !important; 
-        }
+      /* Remove outlines but keep accessibility */
+      *:focus {
+          outline: none;
+      }
+
+      input, select, textarea {
+          font-size: 14px !important; 
       }
 
       .dark input[type="date"]::-webkit-calendar-picker-indicator {
@@ -159,18 +150,9 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="./assets/index-Ck9yYlo1.js"></script>
+  <script type="module" crossorigin src="./assets/index-DMbyw5MM.js"></script>
 </head>
   <body>
     <div id="root"></div>
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-            .then(reg => console.log('SW registered:', reg))
-            .catch(err => console.log('SW registration failed:', err));
-        });
-      }
-    </script>
   </body>
 </html>
