@@ -2,276 +2,25 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" class="dark">
   <head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://esm.sh; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://*.turso.io wss://*.turso.io https://corsproxy.io https://api.allorigins.win https://esm.sh ws://localhost:* http://localhost:*; frame-src 'self'">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
     <title>Gold Master Egypt</title>
     
-    <link rel="manifest" href="/gold-master/manifest.json" />
+    <link rel="manifest" href="./manifest.json" />
     <meta name="theme-color" content="#0f172a" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="format-detection" content="telephone=no" />
     
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg width='512' height='512' viewBox='0 0 512 512' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='gold' x1='0' y1='0' x2='512' y2='512' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0%25' stop-color='%23FFF7D6'/%3E%3Cstop offset='20%25' stop-color='%23FCD34D'/%3E%3Cstop offset='60%25' stop-color='%23B45309'/%3E%3Cstop offset='100%25' stop-color='%23451a03'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M256 20L470 135V377L256 492L42 377V135L256 20Z' fill='%230f172a' stroke='url(%23gold)' stroke-width='16'/%3E%3Cpath d='M256 120L360 220L256 360L152 220Z' fill='url(%23gold)'/%3E%3C/svg%3E" />
-    <link rel="apple-touch-icon" href="/logo192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./icon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="./icon-192.png" />
+    <link rel="shortcut icon" href="./favicon.ico" />
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        darkMode: 'class', 
-        theme: {
-          extend: {
-            colors: {
-              gold: {
-                50: '#fffbf0',
-                100: '#fef5cd',
-                200: '#fde89b',
-                300: '#fcd34d', // Bright Gold from screenshot
-                400: '#fbbf24', 
-                500: '#f59e0b', // Main Action
-                600: '#d97706', 
-                700: '#b45309',
-                800: '#92400e',
-                900: '#78350f',
-              },
-              dark: {
-                bg: '#0f172a',    // Deep Navy
-                card: '#1e293b',  // Slate 800
-                surface: '#334155', // Slate 700
-                text: '#f8fafc',  // Slate 50
-                muted: '#94a3b8', // Slate 400
-                border: '#334155' 
-              }
-            },
-            fontFamily: {
-              sans: ['Cairo', 'sans-serif'],
-            },
-            screens: {
-              'xs': '375px',
-            }
-          }
-        }
-      }
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-      :root {
-        --sat: env(safe-area-inset-top);
-        --sab: env(safe-area-inset-bottom);
-      }
-
-      html {
-        -webkit-tap-highlight-color: transparent;
-        touch-action: manipulation;
-        height: 100dvh;
-        background-color: #030712;
-      }
-      
-      body {
-        font-family: 'Cairo', sans-serif;
-        background: radial-gradient(circle at top, #111827 0%, #030712 100%) !important;
-        color: #f8fafc;
-        user-select: none;
-        -webkit-user-select: none;
-        overscroll-behavior-y: none;
-        height: 100dvh;
-        padding-bottom: var(--sab);
-        display: flex;
-        flex-direction: column;
-      }
-      
-      /* Global Mobile Scrollbar */
-      .custom-scrollbar::-webkit-scrollbar {
-        width: 4px;
-        height: 4px;
-      }
-      .custom-scrollbar::-webkit-scrollbar-track {
-        background: rgba(255,255,255,0.01);
-      }
-      .custom-scrollbar::-webkit-scrollbar-thumb {
-        background: rgba(251, 191, 36, 0.2);
-        border-radius: 99px;
-      }
-      
-      /* Mobile Optimizations */
-      h1, h2, h3 { text-align: right; }
-      input, select, textarea { font-size: 16px !important; }
-
-      /* Key fix for keyboard visibility */
-      input:focus, textarea:focus, select:focus {
-        scroll-margin-bottom: 30vh;
-      }
-
-      .safe-pt { padding-top: var(--sat) !important; }
-      .safe-pb { padding-bottom: var(--sab) !important; }
-      
-      .no-scrollbar::-webkit-scrollbar { display: none; }
-      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-      
-      /* ============================================
-         GLOBAL SMOOTH TRANSITIONS & ANIMATIONS
-         ============================================ */
-
-      /* Keyframes */
-      @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to   { opacity: 1; transform: translateY(0); }
-      }
-      @keyframes fadeIn {
-        from { opacity: 0; }
-        to   { opacity: 1; }
-      }
-      @keyframes slideInRight {
-        from { opacity: 0; transform: translateX(30px); }
-        to   { opacity: 1; transform: translateX(0); }
-      }
-      @keyframes scaleIn {
-        from { opacity: 0; transform: scale(0.92); }
-        to   { opacity: 1; transform: scale(1); }
-      }
-      @keyframes shimmer {
-        0%   { background-position: -200% center; }
-        100% { background-position:  200% center; }
-      }
-      @keyframes floatY {
-        0%, 100% { transform: translateY(0px); }
-        50%       { transform: translateY(-6px); }
-      }
-      @keyframes goldGlow {
-        0%, 100% { box-shadow: 0 0 10px rgba(251,191,36,0.2); }
-        50%       { box-shadow: 0 0 28px rgba(251,191,36,0.55), 0 0 60px rgba(251,191,36,0.15); }
-      }
-      @keyframes spinSlow {
-        from { transform: rotate(0deg); }
-        to   { transform: rotate(360deg); }
-      }
-      @keyframes liquidLoad {
-        0%   { transform: translateY(100%); }
-        100% { transform: translateY(-100%); }
-      }
-      @keyframes ripple {
-        0%   { transform: scale(0); opacity: 0.6; }
-        100% { transform: scale(4); opacity: 0; }
-      }
-      @keyframes blobPulse {
-        0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-        50%       { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-      }
-
-      /* Page entry animation */
-      .page-enter {
-        animation: fadeInUp 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
-      }
-
-      /* Utility classes */
-      .animate-scale-in  { animation: scaleIn  0.28s cubic-bezier(0.22, 1, 0.36, 1) both; }
-      .animate-fade-in   { animation: fadeIn   0.4s  ease both; }
-      .animate-float     { animation: floatY   3s    ease-in-out infinite; }
-      .animate-gold-glow { animation: goldGlow 2.5s  ease-in-out infinite; }
-      .animate-blob      { animation: blobPulse 8s ease-in-out infinite; }
-
-      /* All interactive elements: smooth base transition */
-      button, a, [role="button"], [tabindex], input, select, textarea, label {
-        transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      /* Buttons: scale + glow on tap */
-      button:not(:disabled):active {
-        transform: scale(0.96) !important;
-      }
-      button:not(:disabled):hover {
-        filter: brightness(1.08);
-      }
-
-      /* Icons inherit transition from parent */
-      svg {
-        transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1),
-                    color 0.22s ease,
-                    opacity 0.22s ease;
-      }
-
-      /* Global master overrides for premium look */
-      .bg-dark-card, [class*="bg-dark-card"], .bg-gray-800 {
-        backdrop-filter: blur(16px) !important;
-        -webkit-backdrop-filter: blur(16px) !important;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      /* Premium Luxury Gold Buttons */
-      .bg-gold-500, .bg-gold-600, .bg-\[\#f4c025\] {
-        background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%) !important;
-        color: #000 !important;
-        font-weight: 800 !important;
-        text-shadow: none !important;
-        box-shadow: 0 4px 14px 0 rgba(251, 191, 36, 0.25) !important;
-        border: none !important;
-        transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1) !important;
-      }
-      .bg-gold-500:hover, .bg-gold-600:hover, .bg-\[\#f4c025\]:hover {
-        background: linear-gradient(135deg, #fcd34d 0%, #fbbf24 100%) !important;
-        box-shadow: 0 8px 24px 0 rgba(251, 191, 36, 0.45) !important;
-        transform: translateY(-1px);
-      }
-
-      /* Inputs: glassmorphic & clearly visible */
-      input[type="text"], input[type="number"], input[type="email"],
-      input[type="password"], select, textarea {
-        background: rgba(30, 41, 59, 0.85) !important;
-        border: 1.5px solid rgba(255, 255, 255, 0.12) !important;
-        border-radius: 12px !important;
-        color: #ffffff !important;
-        padding-top: 12px !important;
-        padding-bottom: 12px !important;
-        transition: border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease !important;
-      }
-      input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus,
-      input[type="password"]:focus, select:focus, textarea:focus {
-        border-color: rgba(251, 191, 36, 0.55) !important;
-        background: rgba(30, 41, 59, 1) !important;
-        box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.18) !important;
-        outline: none !important;
-      }
-
-      /* Card hover shimmer */
-      .card-hover {
-        position: relative;
-        overflow: hidden;
-        transition: transform 0.3s cubic-bezier(0.4,0,0.2,1),
-                    box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
-      }
-      .card-hover:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 20px 40px -8px rgba(0,0,0,0.5), 0 0 0 1px rgba(251,191,36,0.08);
-      }
-
-      /* Premium list dividers */
-      .border-dark-border, .border-gray-700, [class*="border-white/5"] {
-        border-color: rgba(255, 255, 255, 0.06) !important;
-      }
-      .divide-gray-700 > :not([hidden]) ~ :not([hidden]) {
-        border-color: rgba(255, 255, 255, 0.06) !important;
-      }
-
-      /* Gold shimmer text effect */
-      .text-shimmer {
-        background: linear-gradient(90deg, #fbbf24, #fde68a, #fbbf24);
-        background-size: 200% auto;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        animation: shimmer 3s linear infinite;
-      }
-
-      /* Glass Bottom Dock */
-      nav .bg-\[\#0f172a\]\/90 {
-        background: rgba(15, 23, 42, 0.85) !important;
-        backdrop-filter: blur(20px) !important;
-        -webkit-backdrop-filter: blur(20px) !important;
-        border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
-      }
-    </style>
 
   <script type="importmap">
 {
@@ -297,7 +46,8 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/gold-master/assets/index-BRrxj77n.js"></script>
+  <script type="module" crossorigin src="/gold-master/assets/index-DMS5iawl.js"></script>
+  <link rel="stylesheet" crossorigin href="/gold-master/assets/index-Bia48s5T.css">
 </head>
   <body>
     <div id="root" style="height: 100%;"></div>
